@@ -4,6 +4,7 @@
 
 ### 4.7.0 (in progress)
 
+- [bug] JAVA-2657: Add ability to specify the class loader to use for application-specific classpath resources
 - [new feature] JAVA-2793: Add composite config loader
 - [new feature] JAVA-2792: Allow custom results in the mapper
 - [improvement] JAVA-2747: Revisit semantics of Statement.setExecutionProfile/Name
