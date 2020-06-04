@@ -8,6 +8,73 @@
 
 -----
 
+### Which artifact(s) should I use?
+
+There are multiple driver artifacts under the group id
+[com.datastax.oss](https://search.maven.org/search?q=g:com.datastax.oss). Here's how to pick the
+right dependencies:
+
+<table>
+<tr><th>Feature</th><th>Artifact(s)</th><th>Comments</th></tr>
+<tr>
+  <td>
+    Core functionality: executing queries with <code>CqlSession.execute()</code>, processing the
+    results with <code>ResultSet</code>, etc.
+  </td>
+  <td><code>java-driver-core</code></td>
+  <td></td>
+</tr>
+<tr>
+  <td>
+    Same as the above, but without an explicit dependency to Netty. 
+  </td>
+  <td><code>java-driver-core-shaded</code></td>
+  <td>Replaces the regular core.<br/>See <a href="../shaded_jar/">this page</a></td>
+</tr>
+<tr>
+  <td>
+    <a href="../../query_builder">Query builder</a>: generating CQL query strings programmatically. 
+  </td>
+  <td><code>java-driver-query-builder</code></td>
+  <td></td>
+</tr>
+<tr>
+  <td>
+    <a href="../../mapper">Object mapper</a>: generating the boilerplate to execute queries and
+    convert the results into your own domain classes.
+  </td>
+  <td>
+    <code>java-driver-mapper-processor</code><br/>
+    <code>java-driver-mapper-runtime</code>
+  </td>
+  <td>
+    Both artifacts are needed. Follow the link on the left for more details on how to configure
+    them.
+  </td>
+</tr>
+<tr>
+  <td>
+    "Bill Of Materials": can help manage versions if you use multiple driver artifacts.
+  </td>
+  <td><code>java-driver-bom</code></td>
+  <td>See <a href="../bom/">this page</a></td>
+</tr>
+<tr>
+  <td>
+    Writing integration tests that run the driver against Cassandra or <a
+    href="https://github.com/datastax/simulacron">Simulacron</a>.
+  </td>
+  <td><code>java-driver-test-infra</code></td>
+  <td>
+    Those APIs are not covered in this manual, but you can look at the driver's <a
+    href="https://github.com/datastax/java-driver/blob/4.x/CONTRIBUTING.md#integration-tests">contribution
+    guidelines</a> and <a
+    href="https://github.com/datastax/java-driver/tree/4.x/integration-tests">own tests</a> for
+    guidance.
+  </td>
+</tr>
+</table>
+
 ### Minimal project structure
 
 We publish the driver to [Maven central][central_oss]. Most modern build tools can download the

@@ -13,6 +13,7 @@ It is published as two artifacts:
       <groupId>com.datastax.oss</groupId>
       <artifactId>java-driver-mapper-processor</artifactId>
       <version>${driver.version}</version>
+      <scope>provided</scope>
     </dependency>
     ```
     
